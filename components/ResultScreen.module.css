@@ -1,0 +1,107 @@
+.wrap {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; padding: 40px 20px 60px; gap: 24px;
+}
+
+.backBtn {
+  align-self: flex-start;
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--bg2);
+  color: var(--text2); font-size: .8rem; cursor: pointer;
+  font-family: 'Instrument Sans', sans-serif; transition: all .2s;
+}
+.backBtn:hover { border-color: var(--b2); color: var(--text); }
+
+.card {
+  width: 100%; max-width: 680px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 20px; overflow: hidden;
+  animation: riseUp .5s ease both;
+}
+
+.youLabel { padding: 14px 22px 0; font-size: .65rem; color: var(--text3); text-transform: uppercase; letter-spacing: .1em; }
+.youText  { padding: 10px 22px 18px; font-size: 1rem; color: var(--text); line-height: 1.7; font-style: italic; font-weight: 300; }
+
+/* stress head */
+.stressHead {
+  padding: 20px 24px 16px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.stressTitle { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; }
+
+.badge { padding: 5px 14px; border-radius: 40px; font-family: 'Syne', sans-serif; font-size: .8rem; font-weight: 700; letter-spacing: .04em; }
+.low      { background: var(--green2); color: var(--green); border: 1px solid rgba(0,229,160,.25); }
+.moderate { background: var(--amber2); color: var(--amber); border: 1px solid rgba(255,184,48,.25); }
+.high     { background: var(--red2);   color: var(--red);   border: 1px solid rgba(255,77,109,.25); }
+
+.stressBody { padding: 24px; }
+
+.scoreRow { display: flex; align-items: flex-end; gap: 12px; margin-bottom: 22px; }
+.scoreBig { font-family: 'Syne', sans-serif; font-size: 4rem; font-weight: 800; line-height: 1; transition: color .5s; }
+.scoreUnit { font-size: 1.1rem; color: var(--text2); margin-bottom: 10px; }
+.scoreDesc { flex: 1; font-size: .85rem; color: var(--text2); line-height: 1.6; padding-bottom: 4px; }
+
+.scaleLabels { display: flex; justify-content: space-between; font-size: .65rem; color: var(--text3); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 8px; }
+.scaleTrack { height: 14px; border-radius: 40px; background: var(--bg3); position: relative; border: 1px solid var(--border); }
+.scaleGrad  { position: absolute; inset: 0; border-radius: 40px; background: linear-gradient(90deg,var(--green),var(--amber),var(--red)); opacity: .15; }
+.scaleFill  { position: absolute; top: 0; left: 0; height: 100%; border-radius: 40px; transition: width 1.4s cubic-bezier(.4,0,.2,1); }
+.scaleThumb { position: absolute; top: 50%; width: 22px; height: 22px; border-radius: 50%; transform: translate(-50%,-50%); border: 3px solid var(--bg); transition: left 1.4s cubic-bezier(.4,0,.2,1); }
+.scaleTicks { display: flex; justify-content: space-between; padding: 0 1px; margin-top: 6px; font-size: .62rem; color: var(--text3); }
+
+.iblock { background: var(--bg3); border-radius: 12px; border: 1px solid var(--border); padding: 16px 18px; margin-top: 16px; }
+.ilabel { font-size: .63rem; color: var(--text3); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 7px; display: flex; align-items: center; gap: 5px; }
+.ilabel::before { content: ''; width: 3px; height: 8px; border-radius: 2px; background: var(--cyan); display: inline-block; }
+.ilabelAmber::before { background: var(--amber); }
+.itext  { font-size: .88rem; color: var(--text); line-height: 1.7; }
+
+/* suggestions */
+.sugTitle { padding: 18px 22px 12px; font-size: .65rem; color: var(--text3); text-transform: uppercase; letter-spacing: .1em; display: flex; align-items: center; gap: 6px; }
+.sugTitle::before { content: ''; width: 3px; height: 8px; border-radius: 2px; background: var(--green); display: inline-block; }
+.sugGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 18px 18px; }
+@media (max-width: 500px) { .sugGrid { grid-template-columns: 1fr; } }
+.sugItem { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 14px; display: flex; gap: 10px; align-items: flex-start; transition: border-color .2s, transform .2s; }
+.sugItem:hover { border-color: var(--b2); transform: translateY(-2px); }
+.sugIco  { font-size: 22px; flex-shrink: 0; }
+.sugName { font-weight: 500; font-size: .82rem; color: var(--text); margin-bottom: 3px; }
+.sugDesc { font-size: .74rem; color: var(--text2); line-height: 1.5; }
+
+/* breathing */
+.breathCard {
+  width: 100%; max-width: 680px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 20px; padding: 22px 24px;
+  animation: riseUp .5s ease both;
+}
+.breathTitle { font-size: .65rem; color: var(--text3); text-transform: uppercase; letter-spacing: .1em; display: flex; align-items: center; gap: 6px; margin-bottom: 18px; }
+.breathTitle::before { content: ''; width: 3px; height: 8px; border-radius: 2px; background: var(--amber); display: inline-block; }
+.bflex { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.bringWrap { position: relative; width: 110px; height: 110px; flex-shrink: 0; }
+.brInner {
+  position: absolute; inset: 14px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,212,255,.1), transparent);
+  border: 1px solid rgba(0,212,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; transition: transform .3s;
+}
+.binfo { flex: 1; min-width: 180px; }
+.bh3   { font-family: 'Syne', sans-serif; font-size: .95rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+.bphase { font-size: 1rem; color: var(--cyan); font-weight: 500; min-height: 24px; margin-bottom: 4px; }
+.bsec   { font-size: .75rem; color: var(--text3); margin-bottom: 14px; }
+.bbtns  { display: flex; gap: 8px; flex-wrap: wrap; }
+.bb {
+  padding: 7px 14px; border-radius: 8px; border: 1px solid var(--b2);
+  background: var(--bg3); color: var(--text2); font-size: .77rem;
+  font-family: 'Instrument Sans', sans-serif; cursor: pointer; transition: all .2s;
+}
+.bb:hover, .on { background: var(--cyan2); color: var(--cyan); border-color: rgba(0,212,255,.4); }
+
+.retryBtn {
+  padding: 12px 32px; border-radius: 12px; border: 1px solid var(--b2);
+  background: var(--bg2); color: var(--text2); font-size: .88rem; font-weight: 500;
+  font-family: 'Instrument Sans', sans-serif; cursor: pointer; transition: all .2s;
+  animation: riseUp .5s .38s ease both;
+}
+.retryBtn:hover { background: var(--cyan2); color: var(--cyan); border-color: rgba(0,212,255,.35); }
